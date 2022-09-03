@@ -78,5 +78,52 @@ news.forEach(news => {
 loaderSpinner(false)
 }
 
+const getDetailsNews = newsId => {
+  const url = `https://openapi.programming-hero.com/api/news/${newsId}`;
+  fetch(url)
+  .then(res => res.json())
+  .then(data => displayDetailsNews(data.data[0]))
+  .catch(error => console.log(error));
+};
+
+const displayDetailsNews = news => {
+console.log(news)
+const newsContainer = document.getElementById('exampleModalLabel');
+newsContainer.textContent = '';
+newsContainer.innerText = news.title;
+
+const modalBody = document.getElementById('modal-body');
+modalBody.textContent = '';
+const newsDetails = document.createElement('div');
+newsDetails.classList.add('card');
+newsDetails.innerHTML = `
+<div class="row g-0 p-4">
+<div class="col-md-12 text-center">
+  <img src="${news.image_url}" class="img-fluid rounded-start myImage" alt="...">
+</div>
+<div class="col-md-12 p-3">
+  <div class="card-body">
+
+    <p class="card-text mb-3"><small class="text-muted">${news.details}...</small></p>
+    <p class="card-title mb-5"> Category Id: ${news.category_id}. News Id: ${news._id}</p>
+    <div class="d-flex justify-content-lg-between align-items-lg-center"> 
+        <div class="d-flex align-items-lg-center"> 
+           <img src="${news.author.img}" class="img-fluid authorImage" alt="...">
+           <div class="">
+             <h5 class="mb-0">${news.author.name ? news.author.name: 'No Data Found'}</h5>
+             <p class="mb-0"><small> ${news.author.published_date}</small></p>
+           </div>
+         </div>
+        <div> <p class="mb-0">  viewed: ${news.total_view ? news.total_view: 'No Data Found' }</div>
+        <p class="mb-0"> Rating: <b> ${news.rating.badge} ${news.rating.number} </b> </p>
+        <p class="card-title">Other: ${news.others_info.is_trending}</p>
+    </div>
+  </div>
+</div>
+</div>
+`;
+modalBody.appendChild(newsDetails);
+}
+
 newsDataLoad()
 
