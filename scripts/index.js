@@ -21,8 +21,18 @@ const displayNewsLoad = news => {
     })
 };
 
+const loaderSpinner = loader => {
+  const loaderSpin = document.getElementById('lodear');
+  if(loader){
+      loaderSpin.classList.remove('d-none');
+  }else{
+      loaderSpin.classList.add('d-none');
+  }
+};
+
+
 const newaSpecificCategory = categoryId => {        
-  // loaderSpinner(true)
+  loaderSpinner(true)
   const url = `https://openapi.programming-hero.com/api/news/category/0${categoryId}`;
   fetch(url)
   .then(res => res.json())
@@ -65,7 +75,7 @@ news.forEach(news => {
      `;
      newsContainer.appendChild(newsDiv);
 })
-// loaderSpinner(false)
+loaderSpinner(false)
 }
 
 newsDataLoad()
