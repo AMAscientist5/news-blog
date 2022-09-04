@@ -1,13 +1,12 @@
+
+// categories news load and show start here
 const newsDataLoad = () => {
 const url = `https://openapi.programming-hero.com/api/news/categories`;
 fetch(url)
 .then(res => res.json())
 .then(data => displayNewsLoad(data.data.news_category))
 .catch(error => console.log(error))
-
 }
-
-
 const displayNewsLoad = news => {
     const newsContainer = document.getElementById('categories-container');
     newsContainer.textContent = '';
@@ -15,12 +14,11 @@ const displayNewsLoad = news => {
     news.forEach(news => { 
            const newsDiv = document.createElement('div')
            newsDiv.innerHTML = `
-           <button class="border border-0 bg-light" onclick="newaSpecificCategory(${news.category_id})">${news.category_name}</button>
-           `;
+           <button class="border border-0 bg-light" onclick="newaSpecificCategory(${news.category_id})">${news.category_name}</button> `;
            newsContainer.appendChild(newsDiv);
-    })
-};
-
+    })};
+// categories news load and show end here
+// spinner 
 const loaderSpinner = loader => {
   const loaderSpin = document.getElementById('lodear');
   if(loader){
@@ -30,9 +28,11 @@ const loaderSpinner = loader => {
   }
 };
 
-
-const newaSpecificCategory = categoryId => {        
+// specific category news load and showing start here 
+const newaSpecificCategory = categoryId => {    
+  // spinner calling    
   loaderSpinner(true)
+
   const url = `https://openapi.programming-hero.com/api/news/category/0${categoryId}`;
   fetch(url)
   .then(res => res.json())
@@ -75,9 +75,12 @@ news.forEach(news => {
      `;
      newsContainer.appendChild(newsDiv);
 })
+// spinner end here 
 loaderSpinner(false)
 }
 
+// specific category news load and showing end here 
+// news individually showing start here in modal
 const getDetailsNews = newsId => {
   const url = `https://openapi.programming-hero.com/api/news/${newsId}`;
   fetch(url)
@@ -124,6 +127,8 @@ newsDetails.innerHTML = `
 `;
 modalBody.appendChild(newsDetails);
 }
+// news individually showing end here in modal
 
+// calling function to show news category
 newsDataLoad()
 
