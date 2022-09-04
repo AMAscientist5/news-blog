@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles/index.css">
+</head>
+<body class="bg-light">
+    <!-- navigation start here -->
+    <header>
+        <nav class="navbar navbar-expand-lg bg-light ">
+            <div class="container">
+              <a class="navbar-brand " href="#"><span class="bg-primary text-white rounded p-2">News</span> Zone</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse  d-flex justify-content-lg-end align-items-center" id="navbarNav">
+                <ul class="navbar-nav m-0 d-flex align-items-center ">
+                  <li class="nav-item">
+                    <a class="nav-link active " aria-current="page" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-primary" href="#">Blogs</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"><img class="myimag" src="./images/1.jpg" alt=""></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            
+          </nav>
+          
+    </header>
+      <!-- navigation end here -->
+    <main class="container">
+        <hr>
+    
+ 
+     <!-- blogs section start here  -->
+     <section>
+        <div class=" p-5 ">
+            <!-- ver, let and const -->
+            <details class="m-3">
+                <summary class="fs-3 fw-bold">The diferences between ver, let and const?</summary>
+                <div class="text-start">
+                <p>1.var declarations are globally scoped or function scoped while let and const are block scoped.</p>
+                <p>2.var variables can be updated and re-declared within its scope; let variables can be updated but not re-declared; const variables can neither be updated nor re-declared.</p>
+                <p>3. They are all hoisted to the top of their scope. But while var variables are initialized with undefined, let and const variables are not initialized.</p>
+                <p>4.While var and let can be declared without being initialized, const must be initialized during declaration.</p>
+                </div>
+            </details>
+            <!-- the arrow and the regular function -->
+              <details class="m-3">
+                <summary class="fs-3 fw-bold" >The differences between the arrow and the regular function?</summary>
+                <p>
+                   <ul>
+                    <li>1. Syntax</li>
+                    <li>2. Arguments binding</li>
+                    <li>3. this</li>
+                    <li>4. new keyword</li>
+                    <li>5. No duplicate named parameters</li>
+                    <li>6. Function Hoisting</li>
+                    <li>7. Methods</li>
+                   </ul>
+                    <ul>
+                    <li>In regular function, this value is dynamic, In arrow function it equals to this of the outer function.</li>
+                    <li>In regular function, arguments will give you list of parameter passed in function, In arrow function arguments is not defined.</li>
+                    <li>In regular function, you always have to return any value, but in Arrow function you can skip return keyword and write in single line.</li>
+                    <li>In arrow function parameters should be unique.</li>
+                    <li>Hoisting matters in arrow function as function get not be invoked before initialisations.</li>
+                </ul>
+                <a href="https://medium.com/geekculture/regular-vs-arrow-function-1f8140fbcece">See more</a>
+            </p>
+              </details>
+              <!-- template string  -->
+              <details class="m-3">
+                <summary class="fs-3 fw-bold">what is the template string used for?</summary>
+                <p> <ul>
+                     <li>Template literals are a new feature introduced in ECMAScript 2015/ ES6. It provides an easy way to create multiline strings and perform string interpolation. Template literals are the string literals and allow embedded expressions.</li>
+                </ul> </p>
+              </details>
+
+              <!-- map, forEach, filter and find  -->
+              <details class="m-3 ">
+                <summary class="fs-3 fw-bold">The diferences among ver, map, forEach, filder & find?</summary>
+                <p> 
+                    <div>
+                        <h4>Map Method()</h4>
+                    <ul>
+                        <li>The map() method creates a new array by performing a function on each array element.</li>
+                        <li>The map() method does not execute the function for array elements without values.</li>
+                        <li>The map() method does not change the original array.</li>
+                        <li>In the map, function takes 3 arguments: value, index, array it self</li>
+                    </ul>
+                    </div>
+
+                    <div>
+                        <h4>forEach Method()</h4>
+                    <ul>
+                        <li>What is forEach used for in JS?
+                            forEach is a JavaScript Array method. It is used to execute a function on each item in an array. Lists, sets, and all other list-like objects support the forEach method.</li>
+                        
+                    </ul>
+                    </div>
+
+                    <div>
+                        <h4>filter Method()</h4>
+                    <ul>
+                        <li>filter() method is used to create a new array from a given array consisting of only those elements from the given array which satisfy a condition set by the argument method.</li>
+                        
+                    </ul>
+                    </div>
+
+                    <div>
+                        <h4>find Method()</h4>
+                    <ul>
+                        <li>The find() method returns the value of the first element that passes a test. The find() method executes a function for each array element. The find() method returns undefined if no elements are found. The find() method does not execute the function for empty elements.</li>
+                        
+                    </ul>
+                    </div>
+                </p>
+              </details>
+        </div>
+    </section>
+  <!-- blogs section end here  -->
+    </main>
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="./scripts/index.js"></script>
+</body>
+</html>
