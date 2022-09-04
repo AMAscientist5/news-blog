@@ -30,6 +30,14 @@ body{
 .myButtonBorder{
     border: none;
 }
-/* .myImage{
-    width: 372px;
-} */
+
+.my-design{
+    height: 100px;
+    /* width: 100%; */
+}
+
+.custom-design{
+    text-align: center;
+    height: 100px;
+    margin-top: 50px;
+}

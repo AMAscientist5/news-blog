@@ -6,12 +6,16 @@ fetch(url)
 .then(res => res.json())
 .then(data => displayNewsLoad(data.data.news_category))
 .catch(error => console.log(error))
-}
+};
 const displayNewsLoad = news => {
     const newsContainer = document.getElementById('categories-container');
     newsContainer.textContent = '';
+ 
+
     newaSpecificCategory(1)
+
     news.forEach(news => { 
+    
            const newsDiv = document.createElement('div')
            newsDiv.innerHTML = `
            <button class="border border-0 bg-light" onclick="newaSpecificCategory(${news.category_id})">${news.category_name}</button> `;
@@ -43,7 +47,16 @@ const newaSpecificCategory = categoryId => {
 const displayCategoryLoad = news => {
 const newsContainer = document.getElementById('category-container');
 newsContainer.textContent = '';
+
+const noPhone = document.getElementById('nofound-Text')
+if(news.length === 0){
+   noPhone.classList.remove('d-none')
+}else{
+   noPhone.classList.add('d-none')
+}
+
 news.forEach(news => { 
+
      const newsDiv = document.createElement('div')
      newsDiv.classList.add('card')
      newsDiv.innerHTML = `
@@ -90,7 +103,7 @@ const getDetailsNews = newsId => {
 };
 
 const displayDetailsNews = news => {
-console.log(news)
+  
 const newsContainer = document.getElementById('exampleModalLabel');
 newsContainer.textContent = '';
 newsContainer.innerText = news.title;
@@ -131,4 +144,6 @@ modalBody.appendChild(newsDetails);
 
 // calling function to show news category
 newsDataLoad()
+
+
 
