@@ -7,6 +7,7 @@ fetch(url)
 .then(data => displayNewsLoad(data.data.news_category))
 .catch(error => console.log(error))
 };
+
 const displayNewsLoad = news => {
     const newsContainer = document.getElementById('categories-container');
     newsContainer.textContent = '';
@@ -43,6 +44,27 @@ const newaSpecificCategory = categoryId => {
 };
 
 const displayCategoryLoad = news => {
+  const newsAmount = document.getElementById('news-amount');
+  newsAmount.innerText = '';
+  const newsLen =  news.length;
+   if(news.length === 0){
+    const div = document.createElement('div');
+    div.classList.add('news-amount')
+    div.innerHTML = `<h3> No Data Available </h3>`;
+    newsAmount.appendChild(div)
+   }else{
+    const div = document.createElement('div');
+    div.classList.add('news-amount')
+    div.innerHTML = `<h3> ${newsLen} Data Found </h3>`;
+    newsAmount.appendChild(div)
+   };
+  
+//  }else{
+//     noPhone.classList.add('d-none')
+//  }
+ news.sort((a,b) => b.total_view - a.total_view);
+ 
+
 const newsContainer = document.getElementById('category-container');
 newsContainer.textContent = '';
 

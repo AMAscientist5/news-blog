@@ -41,3 +41,8 @@ body{
     height: 100px;
     margin-top: 50px;
 }
+
+.news-amount{
+    display: flex;
+    justify-content: center;
+}
