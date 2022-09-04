@@ -10,8 +10,6 @@ fetch(url)
 const displayNewsLoad = news => {
     const newsContainer = document.getElementById('categories-container');
     newsContainer.textContent = '';
- 
-
     newaSpecificCategory(1)
 
     news.forEach(news => { 
